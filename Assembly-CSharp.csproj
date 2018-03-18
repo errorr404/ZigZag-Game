@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\camerafollow.cs" />
      <Compile Include="Assets\Scripts\BallController.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>F:/Android Game development/Projects/ZigZag/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>

@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour {
 	[SerializeField]
 	private float speed;
 	bool started;
+	bool gameover;
 	// Use this for initialization
 	Rigidbody rb;
 
@@ -17,6 +18,7 @@ public class BallController : MonoBehaviour {
 
 	void Start () {
 		started = false;
+		gameover = false;
 	}
 	
 	// Update is called once per frame
@@ -28,7 +30,14 @@ public class BallController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetMouseButtonDown (0)) {
+		if (!Physics.Raycast (transform.position, Vector3.down, 1f)) {
+			gameover = true;
+			rb.velocity = new Vector3 (0,-25f, 0);
+
+			Camera.main.GetComponent<camerafollow> ().gameover = true;
+		}
+
+		if (Input.GetMouseButtonDown (0) && !gameover) {
 			SwitchDirections ();
 		}
 	}
